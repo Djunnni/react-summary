@@ -4,7 +4,9 @@ react native navigator 설치
 
 2. npm install --save react-native-gesture-handler
 
-3. npm install --save react-navigation-stack
+3. react-native link react-native-gesture-handler
+
+4. npm install --save react-navigation-stack
 
 
 react native icon 설치
