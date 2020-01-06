@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {View,Text,TouchableWithoutFeedback,StyleSheet} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default class ListItem extends Component {
+export default class CustomButton2 extends Component {
     defaultProps = {
         onpress : ()=>{},
         iconName : '',
@@ -16,9 +16,8 @@ export default class ListItem extends Component {
         return (
             <TouchableWithoutFeedback onPress={this.props.onpress}>
                 <View style={styles.container}>
-                    <Icon style={styles.icon} name={this.props.iconName}/>
                     <Text style={styles.title}>{this.props.title}</Text>
-                    <Icon style={styles.icon} name='ios-arrow-forward'/>
+                    <Icon style={styles.icon,{color:'#aaa', fontSize:26}} name='ios-arrow-forward'/>
                 </View>
             </TouchableWithoutFeedback>
         )
@@ -30,11 +29,13 @@ const styles = StyleSheet.create({
         width:'100%',
         height:70,
         padding:10,
+        paddingHorizontal:15,
         backgroundColor:'#fff',
         flexDirection:'row',
         justifyContent:'space-between',
         alignItems:'center',
-        
+        borderWidth:0.75,
+        borderColor:'#eee',
     },
     icon:{
         fontSize:26,

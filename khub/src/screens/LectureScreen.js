@@ -1,11 +1,11 @@
 import React ,{useState} from 'react';
-import {View,Text,StyleSheet, Image} from 'react-native';
+import {SafeAreaView,View,Text,StyleSheet, Image} from 'react-native';
 
 const LectureScreen = ({navigation}) => {
     const [save,setSave] = useState(false);
 
     return(
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <View style={styles.header}>
                 
             </View>
@@ -15,7 +15,7 @@ const LectureScreen = ({navigation}) => {
             <View style={styles.footer}>
 
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 

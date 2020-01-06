@@ -1,5 +1,6 @@
 import React,{useState,useEffect} from 'react';
-import {View,Text,StyleSheet,Image,TextInput, Alert,TouchableOpacity,CheckBox} from 'react-native';
+import {SafeAreaView,View,Text,StyleSheet,Image,TextInput, Alert,TouchableOpacity,CheckBox} from 'react-native';
+import firebase from 'react-native-firebase';
 
 import CustomButton from '../components/customButton';
 
@@ -7,12 +8,20 @@ const AuthScreen = ({navigation})=> {
     const [id,setId] = useState('');
     const [pw,setPw] = useState('');
 
+    const handleLogin = () =>{
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(id,pw)
+            .then(()=>{navigation.navigate('Main')})
+            .catch(err=>console.log(err));
+    }
+
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             <Image source={require('../img/icon_kRounge_big.png')} style={styles.icon}/>
             <Text style={styles.welcome}>플립드 러닝을 위한 JBNU 강의포털</Text>
             <TextInput style={styles.textInput} onChangeText={(id)=>setId(id)} placeholder='아이디' autoCorrect={false}/>
-            <TextInput style={styles.textInput} onChangeText={(pw)=>setId(pw)} placeholder='비밀번호' autoCorrect={false} secureTextEntry={true}/>
+            <TextInput style={styles.textInput} onChangeText={(pw)=>setPw(pw)} placeholder='비밀번호' autoCorrect={false} secureTextEntry={true}/>
             
             <CustomButton onPress={()=>navigation.navigate('Main')} title='로그인' titleColor='#fff' buttonColor='rgb(66,141,208)'/>
            
@@ -24,7 +33,7 @@ const AuthScreen = ({navigation})=> {
                     <Text>아이디/비밀번호 찾기</Text>
                 </TouchableOpacity>
             </View>
-        </View>
+        </SafeAreaView>
     )
 }
 
