@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import {SafeAreaView,View,Text,StyleSheet,Image,TextInput, Alert,TouchableOpacity,CheckBox} from 'react-native';
-import firebase from 'react-native-firebase';
 
 import CustomButton from '../components/customButton';
 
@@ -9,11 +8,7 @@ const AuthScreen = ({navigation})=> {
     const [pw,setPw] = useState('');
 
     const handleLogin = () =>{
-        firebase
-            .auth()
-            .signInWithEmailAndPassword(id,pw)
-            .then(()=>{navigation.navigate('Main')})
-            .catch(err=>console.log(err));
+          navigation.navigate('Main');
     }
 
     return (
@@ -23,7 +18,7 @@ const AuthScreen = ({navigation})=> {
             <TextInput style={styles.textInput} onChangeText={(id)=>setId(id)} placeholder='아이디' autoCorrect={false}/>
             <TextInput style={styles.textInput} onChangeText={(pw)=>setPw(pw)} placeholder='비밀번호' autoCorrect={false} secureTextEntry={true}/>
             
-            <CustomButton onPress={()=>navigation.navigate('Main')} title='로그인' titleColor='#fff' buttonColor='rgb(66,141,208)'/>
+            <CustomButton onPress={handleLogin} title='로그인' titleColor='#fff' buttonColor='rgb(66,141,208)'/>
            
             <View style={styles.footer}>
                 <TouchableOpacity onPress={()=>{Alert.alert('회원가입이 필요없습니다.\n전북대학교 학번/사번을 이용해주세요.')}}>

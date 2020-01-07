@@ -26,7 +26,7 @@ const SettingScreen = ({navigation})=>{
                     <CustomButton2 onpress={()=>{}} title='이용약관' />
                     <CustomButton2 onpress={()=>{}} title='개인정보 보호정책' />
                     <Text style={styles.subtitle}></Text>
-                    <TouchableWithoutFeedback onpress={()=>navigation.navigate('Auth')}>
+                    <TouchableWithoutFeedback onpress={()=>{}}>
                         <InfoButton title='로그아웃' color='red' />
                     </TouchableWithoutFeedback>
                 </View>

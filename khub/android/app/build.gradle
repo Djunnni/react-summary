@@ -128,7 +128,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.khub"
+        applicationId "com.khubapp"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -181,7 +181,6 @@ android {
 dependencies {
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-gesture-handler')
-    implementation project(':react-native-firebase')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 

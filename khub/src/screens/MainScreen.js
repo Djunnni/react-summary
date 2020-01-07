@@ -1,5 +1,5 @@
 import React, {useState,useEffect, Fragment} from 'react';
-import {Platform,View,StatusBar,SafeAreaView,StyleSheet,Text,Alert,TouchableWithoutFeedback,Dimensions, FlatList,ImageBackground} from 'react-native';
+import {View,StatusBar,SafeAreaView,StyleSheet,Text,Alert,TouchableWithoutFeedback,Dimensions, FlatList,ImageBackground} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Modal from "react-native-modal";
 import CustomStatusBar from '../components/customStatusBar';
@@ -18,139 +18,74 @@ const MainScreen = ({navigation}) => {
       ? Dimensions.get("window").height
       : require("react-native-extra-dimensions-android").get("REAL_WINDOW_HEIGHT");
 
-    if (Platform.OS === "ios")
-            return (
-                <Fragment>
-                <SafeAreaView style={{ flex: 0, backgroundColor: "#428ed0" }} />  
-                <CustomStatusBar/>
-                <SafeAreaView style={styles.container}>
-                    {/* Header */}
-                    <View style={styles.header}>
-                        <Text style={styles.title}>JBNUHub</Text>
-                        <View style={styles.titleItem}>
-                            <TouchableWithoutFeedback onPress={()=>{Alert.alert('개인화면')}}>
-                                <Icon style={styles.titleIcon} name='ios-contact'/>
-                            </TouchableWithoutFeedback>
-                            <TouchableWithoutFeedback onPress={()=>{Alert.alert('메일')}}>
-                                <Icon style={styles.titleIcon} name='ios-mail'/>
-                            </TouchableWithoutFeedback>
-                            <TouchableWithoutFeedback onPress={()=>{Alert.alert('검색')}}>
-                                <Icon style={styles.titleIcon} name='ios-search' />
-                            </TouchableWithoutFeedback>
-                            <TouchableWithoutFeedback onPress={()=>{setModal(!modal)}}>
-                                <Icon style={styles.titleIcon} name='md-more'/>
-                            </TouchableWithoutFeedback>
-                        </View>
-                    </View>
-                    {/* Modal View */}
-                    <Modal style={styles.modal} 
-                            isVisible={modal} 
-                            onBackdropPress={() => setModal(!modal)} 
-                            deviceHeight={deviceHeight}
-                            deviceWidth={deviceWidth}>
-                        <View style={styles.modalview}>
-                            <TouchableWithoutFeedback onPress={() => {navigation.navigate('Setting'); setModal(!modal);}}>
-                                <Text style={styles.modalitem}>설정</Text>
-                            </TouchableWithoutFeedback>
-                            <TouchableWithoutFeedback onPress={() => {Alert.alert('공지사항')}}>
-                                <Text style={styles.modalitem}>공지사항</Text>
-                            </TouchableWithoutFeedback>
-                            <TouchableWithoutFeedback onPress={() => {Alert.alert('내 강의대화 보기')}}>
-                                <Text style={styles.modalitem}>내 강의대화 보기</Text>
-                            </TouchableWithoutFeedback>
-                            <TouchableWithoutFeedback onPress={() => {Alert.alert('숨긴 강의 관리')}}>
-                                <Text style={styles.modalitem}>숨긴 강의 관리</Text>
-                            </TouchableWithoutFeedback>
-                            <TouchableWithoutFeedback onPress={() => {Alert.alert('즐겨찾기 관리')}}>
-                                <Text style={styles.modalitem}>즐겨찾기 관리</Text>
-                            </TouchableWithoutFeedback>
-                        </View>
-                    </Modal>
-                    {/* Contents View */}
-                    <View style={styles.contents}>
-                        <FlatList
-                             data ={datas}
-                             numColumns={2}
-                             renderItem = {({item})=>
-                             <View style={styles.item}>
-                                <View style={{backgroundColor:'#fff',height:111}}>
-                                     <ImageBackground style={styles.itemImage} source={item.img}/>
-                                </View>
-                                <View style={styles.itemInfo}>
-                                     <Text>{item.key}</Text>
-                                </View>
-                            </View>}
-                             keyExtractor = {({item,index})=>item}
-                        />
-                    </View>
-                </SafeAreaView>
-                </Fragment>
-            )
-    else
-        return (
-            <SafeAreaView style={styles.container}>
-                 <CustomStatusBar backgroundColor="#428ed0" />
-                {/* Header */}
-                <View style={styles.header}>
-                    <Text style={styles.title}>JBNUHub</Text>
-                    <View style={styles.titleItem}>
-                        <TouchableWithoutFeedback onPress={()=>{Alert.alert('개인화면')}}>
-                            <Icon style={styles.titleIcon} name='ios-contact'/>
-                        </TouchableWithoutFeedback>
-                        <TouchableWithoutFeedback onPress={()=>{Alert.alert('메일')}}>
-                            <Icon style={styles.titleIcon} name='ios-mail'/>
-                        </TouchableWithoutFeedback>
-                        <TouchableWithoutFeedback onPress={()=>{Alert.alert('검색')}}>
-                            <Icon style={styles.titleIcon} name='ios-search' />
-                        </TouchableWithoutFeedback>
-                        <TouchableWithoutFeedback onPress={()=>{setModal(!modal)}}>
-                            <Icon style={styles.titleIcon} name='md-more'/>
-                        </TouchableWithoutFeedback>
-                    </View>
+    return (
+        <SafeAreaView style={styles.container}>
+                <CustomStatusBar backgroundColor="#428ed0" />
+            {/* Header */}
+            <View style={styles.header}>
+                <Text style={styles.title}>JBNUHub</Text>
+                <View style={styles.titleItem}>
+                    <TouchableWithoutFeedback onPress={()=>{Alert.alert('개인화면')}}>
+                        <Icon style={styles.titleIcon} name='ios-contact'/>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={()=>{Alert.alert('메일')}}>
+                        <Icon style={styles.titleIcon} name='ios-mail'/>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={()=>{Alert.alert('검색')}}>
+                        <Icon style={styles.titleIcon} name='ios-search' />
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={()=>{setModal(!modal)}}>
+                        <Icon style={styles.titleIcon} name='md-more'/>
+                    </TouchableWithoutFeedback>
                 </View>
-                {/* Modal View */}
-                <Modal style={styles.modal} 
-                        isVisible={modal} 
-                        onBackdropPress={() => setModal(!modal)} 
-                        deviceHeight={deviceHeight}
-                        deviceWidth={deviceWidth}>
-                    <View style={styles.modalview}>
-                        <TouchableWithoutFeedback onPress={() => {navigation.navigate('Setting'); setModal(!modal);}}>
-                            <Text style={styles.modalitem}>설정</Text>
-                        </TouchableWithoutFeedback>
-                        <TouchableWithoutFeedback onPress={() => {Alert.alert('공지사항')}}>
-                            <Text style={styles.modalitem}>공지사항</Text>
-                        </TouchableWithoutFeedback>
-                        <TouchableWithoutFeedback onPress={() => {Alert.alert('내 강의대화 보기')}}>
-                            <Text style={styles.modalitem}>내 강의대화 보기</Text>
-                        </TouchableWithoutFeedback>
-                        <TouchableWithoutFeedback onPress={() => {Alert.alert('숨긴 강의 관리')}}>
-                            <Text style={styles.modalitem}>숨긴 강의 관리</Text>
-                        </TouchableWithoutFeedback>
-                        <TouchableWithoutFeedback onPress={() => {Alert.alert('즐겨찾기 관리')}}>
-                            <Text style={styles.modalitem}>즐겨찾기 관리</Text>
-                        </TouchableWithoutFeedback>
-                    </View>
-                </Modal>
-                {/* Contents View */}
-                <View style={styles.contents}>
-                        <FlatList
-                             data ={datas}
-                             numColumns={2}
-                             renderItem = {({item})=>
-                             <View style={styles.item}>
-                                <View style={{backgroundColor:'#fff',height:111}}>
-                                     <ImageBackground style={styles.itemImage} source={item.img}/>
-                                </View>
-                                <View style={styles.itemInfo}>
-                                     <Text>{item.key}</Text>
-                                </View>
-                            </View>}
-                             keyExtractor = {({item,index})=>item}
-                        />
+            </View>
+            {/* Modal View */}
+            <Modal style={styles.modal} 
+                    isVisible={modal} 
+                    onBackdropPress={() => setModal(!modal)} 
+                    deviceHeight={deviceHeight}
+                    deviceWidth={deviceWidth}>
+                <View style={styles.modalview}>
+                    <TouchableWithoutFeedback onPress={() => {navigation.navigate('Setting'); setModal(!modal);}}>
+                        <Text style={styles.modalitem}>설정</Text>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={() => {Alert.alert('공지사항')}}>
+                        <Text style={styles.modalitem}>공지사항</Text>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={() => {Alert.alert('내 강의대화 보기')}}>
+                        <Text style={styles.modalitem}>내 강의대화 보기</Text>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={() => {Alert.alert('숨긴 강의 관리')}}>
+                        <Text style={styles.modalitem}>숨긴 강의 관리</Text>
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={() => {Alert.alert('즐겨찾기 관리')}}>
+                        <Text style={styles.modalitem}>즐겨찾기 관리</Text>
+                    </TouchableWithoutFeedback>
                 </View>
-            </SafeAreaView>
-        )
+            </Modal>
+            {/* Contents View */}
+            <View style={styles.contents}>
+                    <FlatList
+                            data ={datas}
+                            numColumns={2}
+                            renderItem = {({item})=>
+                            <TouchableWithoutFeedback onPress={()=>navigation.push('Lecture',{
+                                id: item.key.toString()
+                            })}>
+                            <View style={styles.item}>
+                            <View style={{backgroundColor:'#fff',height:111}}>
+                                    <ImageBackground style={styles.itemImage} source={item.img}/>
+                            </View>
+                            <View style={styles.itemInfo}>
+                                    <Text>{item.key}</Text>
+                            </View>
+                        </View>
+                        </TouchableWithoutFeedback>}
+                            keyExtractor = {({item,index})=>item}
+                    />
+            </View>
+        </SafeAreaView>
+    )
 };
 
 const styles = StyleSheet.create({
@@ -208,7 +143,7 @@ const styles = StyleSheet.create({
     },
     item:{
         width:132,
-        height:152,
+        height:160,
         margin:10,
         borderRadius:10,
         overflow:'hidden',
