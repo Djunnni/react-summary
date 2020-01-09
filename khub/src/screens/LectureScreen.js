@@ -1,6 +1,8 @@
 import React ,{useState, Fragment} from 'react';
 import {SafeAreaView,View,Text,StyleSheet, Image} from 'react-native';
 
+const data = {"result":"success","groupId":21,"ownerName":"000","groupName":"모바일앱개발연구","ownerId":2,"memberLength":38,"groupPath":"/앱연구","groupPhoto":"https://khub.jbnu.ac.kr/img/group/background/default_0.jpg","isAdmin":false,"isJoin":true,"groupAuth":0}
+
 const LectureScreen = ({navigation,id}) => {
     const [name,setName] = useState(navigation.getParam('id','123'));
     return(

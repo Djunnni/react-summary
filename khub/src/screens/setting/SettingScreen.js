@@ -2,9 +2,9 @@ import React, { Fragment } from 'react';
 import {Platform,SafeAreaView,View,Text,StyleSheet,TouchableWithoutFeedback} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-import CustomButton2 from '../components/customButton2';
-import InfoButton from '../components/InfoButton';
-import CustomStatusBar from '../components/customStatusBar';
+import CustomButton2 from '../../components/customButton2';
+import InfoButton from '../../components/InfoButton';
+import CustomStatusBar from '../../components/customStatusBar';
 
 const SettingScreen = ({navigation})=>{
     if (Platform.OS === "ios")

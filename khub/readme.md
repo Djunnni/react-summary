@@ -3,6 +3,7 @@ screenshot 참고
 
 개인적으로 수정을 하셔야 됩니다. 
 
+
 1. node_modules 삭제해주세요 !!
 2. npm install 진행
 

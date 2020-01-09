@@ -1,8 +1,8 @@
-'use strict'
 import React from 'react';
+import {AsyncStorage} from 'react-native';
 import MainNavigator from './src/MainNavigator';
 
-function App() {
+const App = () => {
   return (
     <MainNavigator />
   )
