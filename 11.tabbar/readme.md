@@ -1,7 +1,7 @@
 ### react native tab navigation 
 
-[main link](https://reactnavigation.org/docs/en/tab-based-navigation.html)
-[npm link](https://www.npmjs.com/package/react-navigation-tabs)
+1. [official link](https://reactnavigation.org/docs/en/tab-based-navigation.html)
+2. [npm link](https://www.npmjs.com/package/react-navigation-tabs)
 
 #### INSTALL
 npm install --save react-navigation-tabs
