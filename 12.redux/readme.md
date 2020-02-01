@@ -114,6 +114,7 @@ console.log(state.family[1] === newState.family[1]); // false
 
 redux에 대해 좀 더 자세하게 알아보도록 할 예정
 
+[개념 알아보기](./concept.md)
 ## 5. 참고
 
 1. [redux 이해하기](https://medium.com/@ljs0705/redux%EB%A5%BC-%EC%9D%B4%ED%95%B4%ED%95%98%EC%9E%90-7c9e8de0ab7f)
