@@ -11,7 +11,7 @@
 --------
 
 리액트 공식 문서에 보면 다음과 같이 정의되어 있다.<br>
-(리액트 이벤트 핸들링)[https://ko.reactjs.org/docs/handling-events.html]
+[리액트 이벤트 핸들링](https://ko.reactjs.org/docs/handling-events.html)
 
 <img src="./1.png" width="600"></img>
 <br>
