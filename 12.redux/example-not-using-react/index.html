@@ -1,0 +1,54 @@
+<!Doctype html lang="ko">
+<html>
+    <head>
+        <title>Hi!</title>
+        <meta charset="UTF-8">
+        <script src="https://cdn.jsdelivr.net/npm/@reduxjs/toolkit@1.4.0/dist/redux-toolkit.umd.min.js"></script>
+    </head>
+    <body>
+        <h2 id="val">0</h2>
+        <div>
+            
+        <button id="plus">
+            +
+        </button>
+        <button id="minus">
+            -
+        </button>
+       </div>
+    </body>
+    <script>
+        var counter = RTK.createSlice({
+           name:'counter',
+            initialState : {
+                value : 0,
+            },
+            reducers : {
+                increase: (state) => {state.value += 1 },
+                decrease: (state) => {state.value -= 1 },
+            }
+        });
+        var {increase, decrease} = counter.actions;
+
+        var store = RTK.configureStore({
+            reducer : {
+                counter : counter.reducer
+            }
+        })
+        console.log(store)
+        var valElem = document.querySelector('#val');
+        
+        function render() {
+            valElem.innerHTML = store.getState().counter.value.toString();
+        }
+        render();
+        store.subscribe(render);
+        
+        document.getElementById('plus').addEventListener('click',()=>{
+            store.dispatch(increase());
+        });
+         document.getElementById('minus').addEventListener('click',()=>{
+            store.dispatch(decrease());
+        });
+    </script>
+</html>
